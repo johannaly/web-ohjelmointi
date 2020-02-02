@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <title>Tulosta tasoitukset</title>
+
+      <script>
+        var hcpdata = [{ "name": "Ari", "hcp": 54 },
+                       { "name": "Pasi", "hcp": 5 },
+                       { "name": "Seppo", "hcp": 20 }];
+        </script>
+  </head>
+
+    <body>
+        <button id="button">Tulosta tasoitukset</button>
+        <ul id="hcplist"></ul>
+
+    <script>
+    let button = document.getElementById("button");
+    button.addEventListener("click", printResult);
+    let list = document.getElementById("hcplist");
+
+    function printResult() {
+        for (let i = 0; i < hcpdata.length; i++) {
+            let node = document.createElement('li');
+            let input = `${hcpdata[i].name} ${hcpdata[i].hcp}`;
+            let text = document.createTextNode(input);
+            node.appendChild(text);
+            list.appendChild(node);
+        }
+        button.removeEventListener("click", printResult);
+    }
+        </script>
+    </body>
+
+</html> 

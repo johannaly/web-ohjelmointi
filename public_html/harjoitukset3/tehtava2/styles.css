@@ -1,0 +1,27 @@
+
+#container {
+    width: 40%;
+    padding: 10px;
+}
+
+.pic:link, .pic:visited {
+    background-color:lightgreen;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.pic:active, .pic:hover {
+    background-color: green;
+}
+
+img {
+    padding: 10px;
+    border: 2px solid green;
+}
+
+.act {
+    background-color: lightskyblue !important;
+}

@@ -1,0 +1,13 @@
+body {
+    margin: 30px;
+    border: 2px solid black;   
+}
+
+div{
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+.esittely {
+    font-size: 1.5em;
+}
