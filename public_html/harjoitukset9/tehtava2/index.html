@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+        <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+        <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+        <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+
+    <style>
+	body {width: 400px; margin: auto}
+	img {width: 200px; margin: 3px;}
+    .box {width: 300px; border-style: solid; margin: 10px; padding: 10px; background-color: lightblue;}
+
+    </style>
+  </head>
+
+  <body>
+ 
+  <h2>Highscores</h2>
+  <div id="ratkaisu" class="box"></div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/babel">
+
+ class Highscores extends React.Component {
+	constructor(props) {
+	    super(props);
+        this.state = {
+            highscores: [],
+            loaded: false
+        };
+        this.getHighscores();
+	}
+
+    getHighscores () {
+            //console.log("here!");
+            $.ajax({
+                url:"highscoreData.json",
+                cache: false,
+                dataType: "json"
+            }).done(data => {
+                this.setState({highscores:data.highscoreData, loaded:true});
+            }).fail((jqXHR, textStatus, errorThrown) => {
+            console.log(textStatus+":"+errorThrown);
+        });   
+    }
+
+	render() {
+        if (!this.state.loaded) {
+            return (
+                <div><p>Loading...</p></div>
+            )
+        }
+        else {
+	        return (
+	            <div>
+                {this.state.highscores.map((score) => 
+                    <ul key = {score.id}>
+                    <li>
+                        {score.name}: {score.score}
+                    </li>
+                    </ul>
+                    )}
+	            </div>
+	        );
+	    }
+	}
+ }
+
+	ReactDOM.render(
+	  <Highscores />,
+	  document.getElementById('ratkaisu')
+	);
+
+    </script>
+
+  </body>
+</html>
+

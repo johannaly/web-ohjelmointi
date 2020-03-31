@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" type="text/css" href="styles.css">
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      <title>Teht&auml;v&auml; 1</title>
+  </head>
+
+    <body>
+        <div id="container">
+            <h2>Lukujen summa</h2>
+            <form id="form">
+                <div class="smallContainer">
+                    <label for="firstNum">Luku 1: </label>
+                    <input id="firstNum" type="number" name="q" placeholder="Type in a number">
+                </div>
+                <div class="smallContainer">
+                    <label for="secondNum">Luku 2: </label>
+                    <input id="secondNum" type="number" name="q" placeholder="Type in a number">
+                </div>
+                <button id="button">Summa</button>
+            </form>
+            <div id="resultDiv"></div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+            
+                $("#form").submit(function(e) {
+                e.preventDefault();
+                });
+                
+                $("#button").submit(function(e) {
+                    e.preventDefault();
+                });
+
+                $("button").click(function() {
+                    let firstInt = parseInt($("#firstNum").val());
+                    let secondInt = parseInt($("#secondNum").val());
+                    let sum = firstInt + secondInt;
+                    $("#resultDiv").text('Lukujen summa on ' + sum);
+                })
+        });
+        </script>
+    </body>
+
+</html> 

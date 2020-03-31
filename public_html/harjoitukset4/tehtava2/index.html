@@ -3,15 +3,18 @@
     <head>
       <meta charset="UTF-8">
       <link rel="stylesheet" type="text/css" href="styles.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <title>AJAX - Search Form</title>
   </head>
 
     <body>
-        <div>
+        <div id="container">
             <div>Ajax - Search Form</div>
-                <input id="nameSearch" type="text" name="nameSearch" placeholder="Find by first name">
-                <div id="resultsDiv">
-                </div>
+            <form id="form" onkeydown="return event.key != 'Enter'" action="https://student.labranet.jamk.fi/~M6753/ajax-suggest.php" method="get">
+                <input id="q" type="text" name="q" placeholder="Find by first name">
+                <button id="button"><i class="fa fa-search"></i></button>
+                <div id="resultsDiv"></div>
+            </form>
         </div>
         
         <script src="sandbox.js"></script>

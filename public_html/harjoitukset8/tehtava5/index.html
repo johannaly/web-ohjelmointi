@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+        <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+        <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+        <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+
+    <style>
+	 body {width: 400px; margin: auto}
+	.box {
+	  border: 1px dashed #000; padding: 15px; background-color: #adbed8;
+	}
+	input[type="text"] {width: 200px;}
+
+	button {
+	  background-color: #069; border-radius: 5px;
+	  color: #fff; margin-bottom: 5px; margin-right: 5px;
+	  padding: 5px 15px; border: none;
+	}
+    </style>
+  </head>
+
+  <body>
+ 
+  <h3>Nelilaskin</h3>
+  <div id="ratkaisu" class="box"></div>
+
+    <script type="text/babel">
+
+
+ class Nelilaskin extends React.Component {
+
+	constructor(props) {
+	    super(props);
+	    this.handleClick = this.handleClick.bind(this);
+	  }
+
+	  handleClick (index) {
+		// Haetaan kaikki button-elementit
+		var myElements = document.querySelectorAll("button");
+	 
+		// Asetetaan kaikille buttoneille alkuperÃ¤inen vÃ¤ri:
+		for (var i = 0; i < myElements.length; i++) {
+		    myElements[i].style.backgroundColor = "#069";
+            }  
+
+        const n1 = parseInt(this.refs.n1.value);
+        const n2 = parseInt(this.refs.n2.value);
+        if (index == "+") {
+            this.refs.n3.value = n1 + n2;
+            myElements[0].style.backgroundColor = "#008000";
+        }
+        if (index == "-") {
+            this.refs.n3.value = n1 -n2;
+            myElements[1].style.backgroundColor = "#008000";
+
+        }
+        if (index == "*") {
+            this.refs.n3.value = n1 * n2;
+            myElements[2].style.backgroundColor = "#008000";
+        }
+        if (index == "/") {
+            this.refs.n3.value = n1 / n2;
+            myElements[3].style.backgroundColor = "#008000";
+        }    
+	}
+
+	render() {
+	    return (
+	      <div>
+		<table>
+		<tbody>
+		<tr><td>Luku1:</td><td><input type="text" ref="n1" /></td></tr>
+		<tr><td>Luku2:</td><td><input type="text" ref="n2" /></td></tr>
+		<tr><td>Tulos:</td><td><input type="text" ref="n3" /></td></tr>
+		<tr><td>Laske</td><td>
+            <button onClick = {this.handleClick.bind(this, "+")}>+</button>
+            <button onClick = {this.handleClick.bind(this, "-")}>-</button>
+            <button onClick = {this.handleClick.bind(this, "*")}>*</button>
+            <button onClick = {this.handleClick.bind(this, "/")}>/</button>
+        </td></tr>
+		</tbody>
+		</table>
+	      </div>
+	    );
+	  }
+	}
+
+	ReactDOM.render(
+	  <Nelilaskin />,
+	  document.getElementById('ratkaisu')
+	);
+
+    </script>
+
+  </body>
+</html>
+

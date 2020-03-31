@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <title>Golfin kulta- ja etukentät</title>
+      <meta charset="UTF-8">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+   crossorigin=""/>
+
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+   crossorigin=""></script>
+
+
+<style type="text/css">
+   #mapid { height: 675px; width: 800px;} 
+
+.custom-popup .leaflet-popup-content-wrapper {
+  background:#ffc;
+  font-size:12px;
+  line-height:18px;
+  position: relative;
+  top: -30px
+  }
+.custom-popup .leaflet-popup-content-wrapper a {
+  color:rgba(0,0,255,0.5);
+  }
+.custom-popup .leaflet-popup-tip-container {
+  width:30px;
+  height:15px;
+  opacity: 0.0;
+  }
+.custom-popup .leaflet-popup-tip {
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  border-top:15px solid #2c3e50;
+  }
+</style>
+   </head>
+
+   <body>
+    <h3>Golfin kulta- ja etukentät</h3>
+    <div class='custom-popup' id="mapid"></div>
+    <div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<script>
+    let mymap = L.map('mapid').setView([62.8, 26.851325], 6);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoieXVyaWFoYW5pIiwiYSI6ImNqanljZTFrMTBjMGEza25kMjBlZGZkdXYifQ.gxDr4e24ngDBS2ZmLueSuw', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.streets'
+    }).addTo(mymap);
+
+    let yellowIcon = L.icon({
+        iconUrl: 'images/location-pinyellow.png', // Tämä tiedosto sinun pitää itse hakea jostakin ilmaisesta
+                                // kokoelmasta esim  https://www.flaticon.com/free-icon/map-marker_33622
+        iconSize:     [32, 32], // size
+        iconAnchor:   [16, 32], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-32, -32] // point from which the popup should open relative to the iconAnchor
+    });
+
+    let greenIcon = L.icon({
+        iconUrl: 'images/location-pingreen.png', // Tämä tiedosto sinun pitää itse hakea jostakin ilmaisesta
+                                // kokoelmasta esim  https://www.flaticon.com/free-icon/map-marker_33622
+        iconSize:     [32, 32], // size
+        iconAnchor:   [16, 32], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-32, -32] // point from which the popup should open relative to the iconAnchor
+    });
+
+    let blueIcon = L.icon({
+        iconUrl: 'images/location-pinblue.png', // Tämä tiedosto sinun pitää itse hakea jostakin ilmaisesta
+                                // kokoelmasta esim  https://www.flaticon.com/free-icon/map-marker_33622
+        iconSize:     [32, 32], // size
+        iconAnchor:   [16, 32], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-32, -32] // point from which the popup should open relative to the iconAnchor
+    });
+
+    let redIcon = L.icon({
+        iconUrl: 'images/location-pinred.png', // Tämä tiedosto sinun pitää itse hakea jostakin ilmaisesta
+                                // kokoelmasta esim  https://www.flaticon.com/free-icon/map-marker_33622
+        iconSize:     [32, 32], // size
+        iconAnchor:   [16, 32], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-32, -32] // point from which the popup should open relative to the iconAnchor
+    });
+
+
+    // ... muun väriset markkerit samoin
+
+
+    $.ajax({
+            url: 'kentat.json'
+        }).fail(function() {
+                console.log("fail!");
+        }).done(function(data) {
+            // loop through all courses
+            $.each(data.kentat, function(index, kentta) {
+                let markerIcon = redIcon;
+                if (kentta.Tyyppi == "Kulta") {
+                    markerIcon = yellowIcon;
+                }
+                else if (kentta.Tyyppi == "Etu") {
+                    markerIcon = greenIcon;
+                }
+                else if (kentta.Tyyppi == "Kulta/Etu") {
+                    markerIcon = blueIcon;
+                }
+
+                let marker = L.marker([kentta.lat, kentta.lng], {icon: markerIcon}).addTo(mymap);
+                let text = `<h1>${kentta.Kentta}</h1> <p> ${kentta.Kuvaus} </p> Tyyppi:  ${kentta.Tyyppi} <br> Osoite: ${kentta.Osoite} 
+                    <br> Puhelin: ${kentta.Puhelin} <br> Email: ${kentta.Sahkoposti} <br> Web: <a href=\"${kentta.Webbi}\"> ${kentta.Webbi}</a>`;
+                marker.bindPopup(text);
+
+                marker.addEventListener("click", e => {
+                    if (e.target.isPopupOpen()) e.target.openPopup();
+                });
+            });// each
+
+        }); // ajax done
+         
+</script>
+   </body>
+</html>

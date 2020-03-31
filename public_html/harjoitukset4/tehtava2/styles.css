@@ -1,7 +1,51 @@
 body {
-    font-size: 20px;
+    font-size: 23px;
+    padding: 50px;
+    box-sizing: border-box;
+
 }
 
 .active {
-    background-color: lightblue;
+    background-color: lightgreen;
+    cursor: pointer;
 }
+
+input{
+    font-size: 23px;
+    width: 80%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  div {
+    border-radius: 5px;
+    background-color: lightsteelblue;
+    padding: 20px;
+  }
+
+  #container {
+    border-radius: 5px;
+    padding: 20px;
+    width:70%;
+  }
+
+  
+  button {
+    padding: 12px 20px;
+    float: right;
+    width: 20%;
+    background: #2196F3;
+    color: white;
+    font-size: 23px;
+    border: 1px solid #ccc;
+    border-left: none; 
+    cursor: pointer;
+  }
+  
+  #resultDiv.div:hover {
+    background-color: lightgreen;
+  }
+    

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+    <title>Teht&auml;v&auml; 1, Johanna Lyytinen</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin="">
+    </script>
+    <style>
+        body { margin: 0; padding: 0; }
+        #mapid { position: absolute; top: 100px; bottom: 0; left: 50px; width: 800px; height: 600px; }
+        h1 { margin-left: 100px;}
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <body>
+        <h1>MM-ralli</h1>
+
+    <div id="mapid"></div>
+
+    <script>
+        let mymap = L.map('mapid').setView([62.242635, 25.747854], 14);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1Ijoiam9oYW5uYWx5IiwiYSI6ImNrNzV5a2wzODA1bXMzZW9qdWsxcmt3bHoifQ.Th2pfdF0srMpmXSliqehXg'
+        }).addTo(mymap);
+
+        let marker = L.marker([62.242635, 25.747854]).addTo(mymap);
+
+        let circle = L.circle([62.242, 25.735], {
+        color: 'yellow',
+        fillColor: '#FFFF99',
+        fillOpacity: 0.5,
+        radius: 500
+        }).addTo(mymap);
+
+        circle.bindPopup(`<h3> Harjun EK </h3>`);
+
+        let bounds = [[62.239207, 25.752145], [62.237598, 25.755965]];     
+        let rectangle = L.rectangle(bounds).addTo(mymap);
+
+        rectangle.bindPopup(`<h3> MM-ralli - Kilpailukeskus </h3>`);
+
+    </script>
+
+</body>
+</html>
+

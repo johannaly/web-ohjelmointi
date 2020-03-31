@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./lib/jquery-ui-1.12.1.custom/jquery-ui.css">
+  <title>Teht&auml;v&auml; 5, Autocomplete</title>
+
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="./lib/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+  
+</head>
+
+<body>
+ 
+  <div class="container">
+    <label for="names">Etsi etunimellä: </label>
+    <br></br>
+    <input id="names"></input>
+  </div>
+  <div id="result" style="margin-top:2em; font-family:Arial">
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $( "#names" ).autocomplete({
+
+        source: function(request, response) {
+          $.ajax({
+            url: "https://student.labranet.jamk.fi/~M6753/ajax-suggest.php?q=" + request.term,
+            success: function(data) {
+              const dataArray = data.split("\t");
+              response(dataArray);
+            }
+          })
+        },
+
+        minLength: 1
+      });
+    })
+    
+  </script>
+</body>
+</html>

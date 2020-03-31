@@ -1,0 +1,24 @@
+h1 {
+    color: darkblue;
+}
+
+#container {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.para {
+    text-align: left;
+    width: 50%;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.header {
+    color: darkblue;
+    background-color: rosybrown;
+    padding: 5px;
+    margin: 0px;
+    border: 1px solid grey;
+    cursor: pointer;
+}

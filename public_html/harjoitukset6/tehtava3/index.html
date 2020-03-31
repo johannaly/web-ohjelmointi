@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Drag and Drop Example</title>
+<meta charset="utf-8">
+<script src="h08t03-drag-and-drop.js"></script>
+<style>
+#divToDrop {
+	width:800px;
+	height:400px;
+	background-color:#FFF;
+	border:1px solid #000000;
+	margin:5px;
+}
+.thumbnail {
+    height: 125px;
+    border: 1px solid #000000;
+    margin: 2px 2px 0 0;
+  }
+</style>
+</head>
+
+<body>
+
+<div><h1>Drag and Drop Images Example</h1></div>
+<p>Drag images from desktop into the rectangle</p>
+
+<div id="divToDrop" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+</body>
+
+</html>

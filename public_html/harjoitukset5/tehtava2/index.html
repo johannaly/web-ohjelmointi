@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" type="text/css" href="styles.css">
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      <title>Teht&auml;v&auml; 2</title>
+  </head>
+
+    <body>
+        <div id="container">
+            <h1>Teht&auml;v&auml;lista</h1>
+            <form id="form">
+                <input id="task" type="text" name="q" placeholder="Lis&auml;&auml; teht&auml;v&auml;">
+                <button id="button">Lis&auml;&auml;</button>
+            </form>
+            <div id="resultDiv">
+                <ul id="list"></ul>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                $("#form").submit(function(e) {
+                e.preventDefault();
+                });
+                
+                $("#button").submit(function(e) {
+                    e.preventDefault();
+                });
+
+                $("button").click(function() {
+                    const inputText = $("#task").val();
+                    $("#list").append(`<li>${inputText}<b class=\"x\">&nbsp;x</b></li>`);
+                    $("#task").val('');
+                    $("#task").focus();
+                    $(".x").click((e) => $(e.currentTarget).parent().remove());
+                })
+            })
+        </script>
+    </body>
+
+</html> 

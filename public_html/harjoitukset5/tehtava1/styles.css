@@ -1,0 +1,25 @@
+body {
+    max-width: 80%;
+    padding: 20px;
+}
+
+input {
+    margin: 3px;
+}
+
+#container {
+    display: block;
+}
+
+button {
+    padding: 5px;
+    margin-top: 10px;
+}
+
+label {
+    display: inline;
+}
+
+#resultDiv {
+    margin-top: 10px;
+}

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/~M6753/harjoitukset9/tehtava5/static/css/main.8743666a.chunk.css",
+    "main.js": "/~M6753/harjoitukset9/tehtava5/static/js/main.97e5d368.chunk.js",
+    "main.js.map": "/~M6753/harjoitukset9/tehtava5/static/js/main.97e5d368.chunk.js.map",
+    "runtime-main.js": "/~M6753/harjoitukset9/tehtava5/static/js/runtime-main.4a307d4f.js",
+    "runtime-main.js.map": "/~M6753/harjoitukset9/tehtava5/static/js/runtime-main.4a307d4f.js.map",
+    "static/js/2.adfe3705.chunk.js": "/~M6753/harjoitukset9/tehtava5/static/js/2.adfe3705.chunk.js",
+    "static/js/2.adfe3705.chunk.js.map": "/~M6753/harjoitukset9/tehtava5/static/js/2.adfe3705.chunk.js.map",
+    "index.html": "/~M6753/harjoitukset9/tehtava5/index.html",
+    "precache-manifest.cf4a0b34fc08adf9ff1b0bc214d668c3.js": "/~M6753/harjoitukset9/tehtava5/precache-manifest.cf4a0b34fc08adf9ff1b0bc214d668c3.js",
+    "service-worker.js": "/~M6753/harjoitukset9/tehtava5/service-worker.js",
+    "static/css/main.8743666a.chunk.css.map": "/~M6753/harjoitukset9/tehtava5/static/css/main.8743666a.chunk.css.map",
+    "static/js/2.adfe3705.chunk.js.LICENSE.txt": "/~M6753/harjoitukset9/tehtava5/static/js/2.adfe3705.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/~M6753/harjoitukset9/tehtava5/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4a307d4f.js",
+    "static/js/2.adfe3705.chunk.js",
+    "static/css/main.8743666a.chunk.css",
+    "static/js/main.97e5d368.chunk.js"
+  ]
+}

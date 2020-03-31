@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+        <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+        <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+        <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+
+    <style>
+	body {width: 400px; margin: auto}
+	img {width: 200px; margin: 3px;}
+    .box {width: 300px; border-style: dashed; margin: 10px; padding: 10px; background-color: lightblue;}
+
+    </style>
+  </head>
+
+  <body>
+ 
+  <h2>Autolaskuri</h2>
+  <div id="ratkaisu" class="box"></div>
+
+    <script type="text/babel">
+
+
+ class Autolaskuri extends React.Component {
+	constructor(props) {
+	    super(props);
+	    this.onImageClicked = this.onImageClicked.bind(this);
+        this.state = {
+            escortCount: props.initialCount,
+            passatCount: props.initialCount
+        };
+	  }
+
+	  onImageClicked(name) {
+          //console.log(name);
+          if (name == "escort") {
+              this.setState ({escortCount:this.state.escortCount + 1});
+          }
+          if (name == "passat") {
+              this.setState ({passatCount:this.state.passatCount + 1});
+          }
+	}
+
+	render() {
+	    return (
+	      <div>
+          <h3>Klikkaa mieleistä auton kuvaa</h3>
+            <p>Escorts: {this.state.escortCount}</p>
+            <img src="images/ford.jpg" alt="Escort picture" onClick = {this.onImageClicked.bind(this, "escort")}></img>
+            <p>Passats: {this.state.passatCount}</p>
+            <img src="images/volkswagen.jpg" alt="Passat picture" onClick = {this.onImageClicked.bind(this, "passat")}></img>
+	      </div>
+	    );
+	  }
+	}
+
+	ReactDOM.render(
+	  <Autolaskuri initialCount = {0} />,
+	  document.getElementById('ratkaisu')
+	);
+
+    </script>
+
+  </body>
+</html>
+
