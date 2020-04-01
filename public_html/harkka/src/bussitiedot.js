@@ -1,21 +1,25 @@
-
 import * as $ from 'jquery';
 
-function linjat(callback) {
+function linjat(onComplete) {
     $.ajax({
         url: 'http://data.itsfactory.fi/journeys/api/1/lines'
     }).fail(function() {
         console.log("fail!");
     }).done(function(data) {
-        console.log(data);
+        onComplete(data.body);
     }); 
-    callback ([1, 4, 5]);
 }
 
-
-function sijainti(callback) {
-    callback ([{"line-id": 2, "lat": "23.34", "lon": "34.56"}]);
+function sijainti(onComplete) {
+    $.ajax({
+        url: 'http://data.itsfactory.fi/journeys/api/1/vehicle-activity'
+    }).fail(function() {
+        console.log("fail!");
+    }).done(function(data) {
+        onComplete(data.body);
+    }); 
 }
+
 
 export {linjat, sijainti};
 
