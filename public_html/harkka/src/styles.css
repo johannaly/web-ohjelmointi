@@ -1,14 +1,24 @@
 #mapid { height: 675px; width: 100%;} 
 
 .my-custom-icon{
-    width: 24px !important;
-    height: 24px !important;
-    margin-left: -12px;
-    margin-top: -12px;
+    width: 30px !important;
+    height: 30px !important;
+    margin-left: -17px !important;
+    margin-top: -17px !important;
     border-radius: 18px;
     border: 2px solid #3F51B5;
     text-align: center;
     color: #3F51B5;
     background-color: #fff;
-    font-size: 16px;
+    font-size: 14px;
+    vertical-align: middle;
+    line-height: 30px;
+  }
+
+  .leaflet-marker-pane > * {
+    -webkit-transition: transform 1.2s linear;
+    -moz-transition: transform 1.2s linear;
+    -o-transition: transform 1.2s linear;
+    -ms-transition: transform 1.2s linear;
+    transition: transform 1.2s linear;
   }
