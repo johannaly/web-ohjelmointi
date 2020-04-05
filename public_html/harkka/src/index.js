@@ -8,9 +8,11 @@ import 'leaflet/dist/leaflet';
 import "./styles.css";
 import { linjat, sijainti } from './bussitiedot.js';
 
+
 let lines = [];
 let mymap = L.map('mapid').setView([61.497743, 23.76129], 11);
 let markers = [];
+
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoieXVyaWFoYW5pIiwiYSI6ImNqanljZTFrMTBjMGEza25kMjBlZGZkdXYifQ.gxDr4e24ngDBS2ZmLueSuw', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -21,14 +23,34 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 
 function initialize(bussilinjat) {
     lines = bussilinjat;
-    
+    //console.log(lines);
+    //lines.forEach(addDropdown);
     setInterval(() => {
         sijainti(haeSijainti);
     }, 1000); 
 }    
 
+function addDropdown(lineObject) {
+    let name = lineObject.name;
+    let node = document.createElement("div");
+    let textnode = document.createTextNode(name);
+    node.appendChild(textnode);
+    node.classList.add("lineSelector");
+    document.getElementById("container").appendChild(node);
+
+}
+
+function updateLineSelectors(busLocations) {
+    let visibleBuslines = lines.filter(line => 
+        busLocations.find(location =>
+            location.monitoredVehicleJourney.journeyPatternRef === line.name));
+    //console.log(visibleBuslines);
+    document.getElementById("container").innerHTML = "";
+    visibleBuslines.forEach(addDropdown);
+}
 
 function haeSijainti(bussisijainnit) {
+    updateLineSelectors(bussisijainnit);
     bussisijainnit.forEach(function(sijainti) {
         //console.log(sijainti);
         let location = sijainti.monitoredVehicleJourney.vehicleLocation;
@@ -51,7 +73,7 @@ function haeSijainti(bussisijainnit) {
 
         let found = lines.find((data) => data.name === line);
         let nimi = found ? found.name : line; 
-    
+
         //console.log(found);
         //let nimi = found.name;
         //console.log("nimi" + nimi);

@@ -1,4 +1,8 @@
-#mapid { height: 675px; width: 100%;} 
+#mapid { 
+    height: 675px;
+    width: 70%;
+    float: left;
+  } 
 
 .my-custom-icon{
     width: 30px !important;
@@ -22,3 +26,22 @@
     -ms-transition: transform 1.2s linear;
     transition: transform 1.2s linear;
   }
+
+.lineSelector {
+  background-color: lightblue;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  width: 50px;
+  height: 40px;
+}
+
+#container {
+  display: flow-root;
+  
+  
+}
+
+
