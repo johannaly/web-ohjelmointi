@@ -1,8 +1,21 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+} 
+
+body {
+  margin: 0px;
+}
+
 #mapid { 
-    height: 675px;
-    width: 70%;
-    float: left;
+    height: 100%;
+    width: 100%;
   } 
+
+h1 {
+  color: #004de6;
+  font-size: 25px;
+  margin-left: 7px;
+}
 
 .my-custom-icon{
     width: 30px !important;
@@ -10,11 +23,11 @@
     margin-left: -17px !important;
     margin-top: -17px !important;
     border-radius: 18px;
-    border: 2px solid #3F51B5;
+    border: 1px solid white;
     text-align: center;
-    color: #3F51B5;
-    background-color: #fff;
-    font-size: 14px;
+    color: white;
+    background-color: #004de6;
+    font-size: 12px;
     vertical-align: middle;
     line-height: 30px;
   }
@@ -28,20 +41,65 @@
   }
 
 .lineSelector {
-  background-color: lightblue;
   display: inline-block;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 25px;
-  border: 2px solid #73AD21;
-  width: 50px;
-  height: 40px;
+  margin: 5px;
+  padding: 7px;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 18px;
+  border: 1px solid white;
+  text-align: center;
+  color: white;
+  background-color: #004de6;
+  font-size: 12px;
+  vertical-align: middle;
+  line-height: 24px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+h3 {
+  color: #004de6;
+}
+
+p {
+  color: #004de6;
+  margin: 7px;
+  margin-bottom: 16px;
+  line-height: 1.6em;
 }
 
 #container {
   display: flow-root;
-  
-  
+}
+
+#lineContainer {
+  float: left;
+  width: 20%;
+}
+
+#mapContainer {
+  height: 100%;
+  width: 80%;
+  float: left;
+}
+
+.active {
+  cursor: pointer;
+  display: inline-block;
+  margin: 5px;
+  padding: 7px;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 18px;
+  border: 1px solid #00b359;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  vertical-align: middle;
+  line-height: 24px;
+  background-color:#00b359;
 }
 
 
