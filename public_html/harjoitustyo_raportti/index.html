@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <title>Johanna Lyytinen, harjoitustyön raportti</title>
+  </head>
+<body>
+
+<h1>Tampereen liikennelaitoksen bussiliikenne kartalla</h1>
+<h2>Johanna Lyytinen</h2>
+<h2>Harjoitustyö, Web-ohjelmointi TTMS0500/K2020</h2>
+<p>7.4.2020</p>
+
+<p>Harjoitustyö on nähtävissä student-palvelimella osoitteessa: <a href="#"></a>student.jotain</p>
+<p>Harjoitustyön koodit zip-pakettina: <a href="#"></a>student.jotain.taas</p>
+
+<h2>Harjoitustyön yleiskuvaus</h2>
+<div>
+    <img src="images/bussitKartalla.PNG" alt="kuvakaappaus bussit kartalla-sovelluksesta">
+</div>
+<p>Harjoitustyössä on käytetty hyväksi Tampereen liikennelaitoksen tarjoamaa REST APIa: <a href="http://wiki.itsfactory.fi/index.php/Journeys_API">
+    wiki.itsfactory.fi.</a></p>
+<p>Työssä mallinnetaan reaaliaikaisena Tampereen bussiliikennettä kartalla. REST-rajapinnasta saadaan haettua bussilinjojen numerot ja nimet sekä
+     ajossa olevien bussien koordinaatit json-datana. Rajapinta tarjoaa näiden lisäksi paljon muitakin tietoja bussiliikenteestä ja työtä saisi
+    kohtuu helposti näiden avulla vielä kehitettyä eteenpäin.</p>
+<p>Oletuksena kartalla näytettään kaikki sillä hetkellä liikenteessä olevat bussilinjat. Viedessään hiiren kursorin kartalla linjan
+    päälle, ilmestyy käyttäjälle popup, joka kertoo bussilinjan lisäksi myös bussilinjan kuvauksen. Bussien koordinaatit saadaan 
+    reaaliaikaisena REST-rajapinnasta ja ne päivitetään työssä sekunnin välein. Oikean reunan valintapainikkeista voidaan valita näkyviin 
+    vain halutut linjat. Tässä valikossa ovat näkyvillä vain ne linjat, jotka ovat parhaillaan myös liikenteessä. 
+    Valintapainikkeet päivittyvät sitä mukaa kun busseja tulee liikenteeseen tai poistuu varikolle.</p>
+<p>Kartta on piirretty Leaflet-kirjastoa käyttäen. Työssä on hyödynnetty ES6-moduuleita ja kirjastojen hallintaan NPM-työkalua.
+    Moduulien riippuvuuksien hallintaan on käytetty Webpack-työkalua. Modernin Javascriptin kääntämisestä selaimen tukemaan Javascriptiin huolehtii
+    Babel.</p>
+
+<h2>Harjoitustyön toteutus</h2>
+<p>Työ on jaettu kahteen moduuliin. Index.js tiedostossa olevaan pääohjelmaan ja busdata.js tiedostossa olevaan ohjelmaan. Busdata.js tiedostossa tehdään
+    ajax-kutsu, jonka tuloksena saadaan REST-rajapinnasta bussiliikenteen mallintamiseen tarvittava data. Index.js moduulin toimintaa on kuvattu alla olevassa 
+    kaaviossa. 
+</p>
+<div>
+    <img src="images/kaavio.PNG" alt="kaavio koodin kulusta">
+</div>
+<p>Bussin lähtiessä varikolle tai muuten pois ajosta, poistetaan myös bussia vastaava ikoni kartalta. Sivuvalikon valintapainikkeet päivitetään sen
+    mukaan, mitkä bussit ovat liikenteessä. Vaihtoehtona ei tulisi olla sellaista bussia, joka ei parhaillaan ole ajossa. Ikonien päivitys tapahtuu
+    katkoviivoilla rajatun kaavion mukaan ja tämän tehdään jokaiselle bussille erikseen. Jos bussin pitäisi olla näkyvissä kartalla, tarkistetaan onko sillä
+    jo olemassa oleva ikoni. Jos on, ikonin koordinaatit päivitetään. Jos ei ole, luodaan uusi ikoni. Jos bussin ei pitäisi olla näkyvissä kartalla,
+    mutta bussilla on olemassa oleva ikoni, poistetaan ikoni kartalta. Jos ikonia ei ole, ei tarvitse tehdä mitään toimenpiteitä. Ajastin on ajastettu 
+    toistamaan tätä sekunnin välein, joten bussien sijainnit kartalla ja samoin valintapainikeet päivittyvät koko ajan. Tällä saadaan lähes reaaliaikainen
+    seuranta bussien liikkumisesta. 
+</p>
+
+
+
+<h2>Itsearvio harjoitustyöstä</h2>
+
+<p>Ehdotan harjoitustyön arvosanaksi 5. 
+    Harjoitustyö opetti paljon ja syvensi kurssilla opittuja tietoja. Erityisesti pidin siitä, että työ yhdisteli monia eri työkaluja.
+    Aluksi koin työn aloittamisen vaikeana, mutta kun jaoittelin sen pienempiin osiin, alkoi työ edistymään. Esimerkiksi aluksi tein funktion, mikä
+    haki pelkät bussilinjat ja vasta tämän jälkeen aloin miettimään miten saan ne kartalle. Kun olin saanut bussit kartalle, aloin pohtimaan miten
+    saan koordinaatit päivitettyä jne. Kun työ oli jaoteltu, oli myös helpompi seurata miten paljon työtä oli vielä jäljellä, eikä homma tuntunut
+    kaatuvan päälle. Aikaa harjoitustyön tekemiseen käytin suunnilleen 35 tuntia.</p>
+    <p>En tehnyt työstä skaalautuvaa, joten se ei toimi täysin samoin pienillä näytöillä.
+        Halusin keskittyä itse ohjelmointiosuuteen koska itselläni aika ei olisi riittänyt kaikkeen.
+    </p>
+</body>
+</html> 
