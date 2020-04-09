@@ -14,6 +14,7 @@
 
 <p>Harjoitustyö on nähtävissä student-palvelimella osoitteessa: <a href="#"></a>student.jotain</p>
 <p>Harjoitustyön koodit zip-pakettina: <a href="#"></a>student.jotain.taas</p>
+<p>Harjoitustyön esittelyvideo: <a href=""></a>video</p>
 
 <h2>Harjoitustyön yleiskuvaus</h2>
 <div>
@@ -35,22 +36,22 @@
 
 <h2>Harjoitustyön toteutus</h2>
 <p>Työ on jaettu kahteen moduuliin. Index.js tiedostossa olevaan pääohjelmaan ja busdata.js tiedostossa olevaan ohjelmaan. Busdata.js tiedostossa tehdään
-    ajax-kutsu, jonka tuloksena saadaan REST-rajapinnasta bussiliikenteen mallintamiseen tarvittava data. Index.js moduulin toimintaa on kuvattu alla olevassa 
+    ajax-kutsu, jonka tuloksena saadaan REST-rajapinnasta bussiliikenteen mallintamiseen tarvittava data. Moduulien toimintaa on kuvattu alla olevassa 
     kaaviossa. 
 </p>
 <div>
     <img src="images/kaavio.PNG" alt="kaavio koodin kulusta">
 </div>
-<p>Bussin lähtiessä varikolle tai muuten pois ajosta, poistetaan myös bussia vastaava ikoni kartalta. Sivuvalikon valintapainikkeet päivitetään sen
+<p>Haetaan ensin aina bussien sijaintitiedot rajapinnasta. Bussin lähtiessä varikolle tai muuten pois ajosta, poistetaan myös bussia vastaava ikoni kartalta. Sivuvalikon valintapainikkeet päivitetään sen
     mukaan, mitkä bussit ovat liikenteessä. Vaihtoehtona ei tulisi olla sellaista bussia, joka ei parhaillaan ole ajossa. Ikonien päivitys tapahtuu
     katkoviivoilla rajatun kaavion mukaan ja tämän tehdään jokaiselle bussille erikseen. Jos bussin pitäisi olla näkyvissä kartalla, tarkistetaan onko sillä
     jo olemassa oleva ikoni. Jos on, ikonin koordinaatit päivitetään. Jos ei ole, luodaan uusi ikoni. Jos bussin ei pitäisi olla näkyvissä kartalla,
     mutta bussilla on olemassa oleva ikoni, poistetaan ikoni kartalta. Jos ikonia ei ole, ei tarvitse tehdä mitään toimenpiteitä. Ajastin on ajastettu 
-    toistamaan tätä sekunnin välein, joten bussien sijainnit kartalla ja samoin valintapainikeet päivittyvät koko ajan. Tällä saadaan lähes reaaliaikainen
+    toistamaan tätä sekunnin välein, joten bussien sijainnit kartalla ja samoin valintapainikeet päivittyvät koko ajan. Tällä saadaan aikaan lähes reaaliaikainen
     seuranta bussien liikkumisesta. 
 </p>
 
-
+<h2>Sivuston käyttöönotto</h2>
 
 <h2>Itsearvio harjoitustyöstä</h2>
 
