@@ -3,7 +3,7 @@ import * as $ from 'jquery';
 //Funktio hakee tiedot kaikista bussilinjoista, myös niistä mitkä ovat olemassa, mutta eivät juuri nyt liikenteessä.
 function getBusLines(onComplete) {
     $.ajax({
-        url: 'http://data.itsfactory.fi/journeys/api/1/lines'
+        url: 'https://data.itsfactory.fi/journeys/api/1/lines'
     }).fail(function() {
         console.log("fail!");
     }).done(function(data) {
@@ -14,7 +14,7 @@ function getBusLines(onComplete) {
 //Funktio hakee koordinaattitiedot liikenteessä olevista busseista
 function getBusLocations(onComplete) {
     $.ajax({
-        url: 'http://data.itsfactory.fi/journeys/api/1/vehicle-activity'
+        url: 'https://data.itsfactory.fi/journeys/api/1/vehicle-activity'
     }).fail(function() {
         console.log("fail!");
     }).done(function(data) {
