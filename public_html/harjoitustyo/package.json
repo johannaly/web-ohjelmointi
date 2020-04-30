@@ -22,7 +22,7 @@
     "webpack-dev-server": "^3.7.1"
   },
   "dependencies": {
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "leaflet": "^1.6.0",
     "mapbox-gl-leaflet": "0.0.12"
   }
